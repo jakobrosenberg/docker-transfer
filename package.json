@@ -1,6 +1,6 @@
 {
   "name": "docker-transfer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Transfer docker images with ssh",
   "bin": "cli.js",
   "main": "index.js",
