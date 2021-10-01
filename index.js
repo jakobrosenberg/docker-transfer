@@ -1,11 +1,14 @@
 const { removeSync, ensureDirSync, existsSync } = require('fs-extra');
 const { log, green, save, compress, copy, load, cleanRemote, verifyConnection } = require('./utils');
 
+const defaults = { tempDir: `${require('os').tmpdir()}/docker-transfer` }
+
+
 /**
  * @param {Options} options
  */
 const dockerTransfer = async (options) => {
-    const { tempDir, images, host, preserveTemp, preserveRemoteTemp } = options;
+    const { tempDir, images, host, preserveTemp, preserveRemoteTemp } = { ...defaults, ...options };
     const outputFile = `${tempDir}/images.tar`;
     const compressedFile = `${outputFile}.gz`;
     const hostFile = '~/images.tar.gz';
